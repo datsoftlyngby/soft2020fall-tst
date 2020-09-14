@@ -50,4 +50,11 @@ public class BaseAccountTest {
     assertEquals(0L, account.getBalance());
     }
 
+  @Test
+  public void testCreatedAccountHasEmptyTransactions() {
+    String number = "ABC-123";
+    BaseAccount account = new BaseAccount(bank, customer, number);
+    assertEquals(0, account.getTransactions().size());
+    }
+
   }
