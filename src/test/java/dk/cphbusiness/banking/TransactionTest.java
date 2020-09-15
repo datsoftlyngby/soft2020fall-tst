@@ -3,6 +3,7 @@ package dk.cphbusiness.banking;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 
 public class TransactionTest {
   private BaseAccount source;
@@ -13,8 +14,8 @@ public class TransactionTest {
   public void setup() {
     Bank bank = new BankMock();
     Customer customer = new CustomerMock();
-    source = new BaseAccount(bank, customer, "ABC-123");
-    target = new BaseAccount(bank, customer, "XYZ-456");
+    source = new BaseAccount(mock(SmsService.class), bank, customer, "ABC-123");
+    target = new BaseAccount(mock(SmsService.class), bank, customer, "XYZ-456");
     }
 
   @Test
